@@ -45,8 +45,10 @@ public class AspectExtractBoth {
 		OutputStreamWriter fileWriter = null;
 		String text = "";
 		try {
+			File aspectFile = new File(UserReviewConstants.ASPECTS_LIST);
+			aspectFile.getParentFile().mkdirs();
 			fileWriter = new OutputStreamWriter(
-					new FileOutputStream(UserReviewConstants.ASPECTS_LIST),
+					new FileOutputStream(aspectFile),
 					"UTF-8");
 
 			File file = new File(UserReviewConstants.REVIEW_DATA);

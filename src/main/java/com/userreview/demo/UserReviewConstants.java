@@ -1,9 +1,12 @@
 package com.userreview.demo;
 
 public class UserReviewConstants {
+	//Inputs
 	public static final String REVIEW_DATA ="C:\\Data\\vivantareviews.txt";
-	public static final String ASPECTS_LIST ="C:\\Data\\Test\\Aspects.txt";
 	public static final String WORD2VEC_MODEL ="C:\\Compressed Softwares\\GoogleNews-vectors-negative300.bin.gz";
+	
+	//Outputs
+	public static final String ASPECTS_LIST ="C:\\Data\\Test\\Aspects.txt";
 	public static final String PRUNED_ASPECTS_LIST ="C:\\Data\\Test\\PrunedAspects.txt";
 	public static final String ASPECTS_CLUSTER ="C:\\Data\\Test\\AspectCluster.txt";
 	public static final String SENTIMENT_RESULT="C:\\Data\\Test\\Result.txt";
@@ -11,7 +14,8 @@ public class UserReviewConstants {
 	//Word2Vec cosine similarity factor to limit the cluster sizes
 	public static final double COSINE_SIM_FACTOR=0.50;
 	
-	//Not needed to Change
+	
+	//Do not Change
 	public static final String STOPWORDS_LIST ="stopwords_en.txt";
 	public static final String BROWN_ASPECTS_LIST ="BrownAspects.txt";
 }

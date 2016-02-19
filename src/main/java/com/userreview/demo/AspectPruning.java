@@ -17,7 +17,9 @@ public class AspectPruning {
 
 	public static void main(String[] args) {
 		try {
-			OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(UserReviewConstants.PRUNED_ASPECTS_LIST), "UTF-8");
+			File aspectFile = new File(UserReviewConstants.PRUNED_ASPECTS_LIST);
+			aspectFile.getParentFile().mkdirs();
+			OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(aspectFile), "UTF-8");
 			setWordVectors(UserReviewConstants.WORD2VEC_MODEL);
 			INDArray aspectCentroid = getCentroid(UserReviewConstants.ASPECTS_LIST, 10);
 			INDArray brownCentroid = getCentroid(new ClassPathResource(UserReviewConstants.BROWN_ASPECTS_LIST).getFile().getAbsolutePath(), 25);

@@ -35,8 +35,10 @@ public class StanfordSentiment {
 			values.addAll(map.values());
 			Multimap<String, String> valuePos = ArrayListMultimap.create();
 			Multimap<String, String> valueNeg = ArrayListMultimap.create();
+			File resultFile = new File(UserReviewConstants.SENTIMENT_RESULT);
+			resultFile.getParentFile().mkdirs();
 			OutputStreamWriter fileWriter = new OutputStreamWriter(
-					new FileOutputStream(UserReviewConstants.SENTIMENT_RESULT), "UTF-8");
+					new FileOutputStream(resultFile), "UTF-8");
 			Properties props = new Properties();
 			props.setProperty("annotators", "tokenize, ssplit, pos, parse, sentiment");
 			StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
@@ -45,10 +47,8 @@ public class StanfordSentiment {
 			String text = "";
 			text = Files.toString(file, Charset.forName("utf-8"));
 
-			// create an empty Annotation just with the given text
 			Annotation document = new Annotation(text);
 
-			// run all Annotators on this text
 			pipeline.annotate(document);
 
 			List<CoreMap> sentences = document.get(SentencesAnnotation.class);

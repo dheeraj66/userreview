@@ -25,7 +25,9 @@ public static Multimap main(String[] args)
 {
 	Multimap<String, String> multimap = ArrayListMultimap.create();
 	try {
-		OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(UserReviewConstants.ASPECTS_CLUSTER), "UTF-8");
+		File clusterFile = new File(UserReviewConstants.ASPECTS_CLUSTER);
+		clusterFile.getParentFile().mkdirs();
+		OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(clusterFile), "UTF-8");
 		String word;
 		String keyWords[]={"location","service","food","room","vibe","amenities","comfort","value","WiFi","pool"};
 		List<String> aspectList=getAspectWords();
